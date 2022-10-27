@@ -47,8 +47,8 @@ class Distiller():
 			distillerModelSet: list of models for the distillers.
 		'''
 		distillerModelSet = []
-		for model_single in config.DISTILLER_LIST:
-			distillerModelSet.append(torch.load(os.path.join(self.distillerModelsPath, config.DISTILLER_INFO[model_single]['name'])))
+		for model_single in config.TEACHER_LIST:
+			distillerModelSet.append(torch.load(os.path.join(self.distillerModelsPath, config.TEACHER_INFO[model_single]['name'])))
 		return distillerModelSet
 
 	def getDistillerOutput(self, batch_x, phase):

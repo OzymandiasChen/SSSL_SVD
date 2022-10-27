@@ -91,7 +91,7 @@ elif(TRAIN_MODE == 'KD'): # to validate the similarity hypothesis.
 	KD:= BCE_soft + BCE_hard
 	lambda_KD * KD_T * KD_T * BCE_soft + (1 - lambda_KD) * BCE_hard
 	'''
-	DISTILLER_LIST = ['']
+	TEACHER_LIST = ['']
 	KD_T = 8
 	LAMBDA_KD = 0.5
 elif(TRAIN_MODE == 'SSL'): # S2019
@@ -102,7 +102,7 @@ elif(TRAIN_MODE == 'SSL'): # S2019
 
 	HARD_USING = False
 	UNLABEL_FOLDER_LIST = [''] # G1
-	DISTILLER_LIST = ['']
+	TEACHER_LIST = ['']
 	LAMBDA_SSL = 0.7 # lambda_unlabel
 elif(TRAIN_MODE == 'SSSL'):
 	'''
@@ -113,7 +113,7 @@ elif(TRAIN_MODE == 'SSSL'):
 		lambda_unlabel * KDLoss(SSL_T, LAMBDA_SSL_KD) + (1 - lambda_unlabel) * KDLoss(KD_T, LAMBDA_KD)
 	'''
 	UNLABEL_FOLDER_LIST = [''] 
-	DISTILLER_LIST = ['']
+	TEACHER_LIST = ['']
 	KD_T = 8
 	LAMBDA_KD = 0.5
 	KD_SSL_MODE = 'soft' # 'multi'/'soft' # too troublesome & not necessary.
@@ -130,11 +130,13 @@ else:
 	pass
 
 
-#--------------------------------------------Distiller Info ---------------------------------------------#
-DISTILLER_INFO = {}
-DISTILLER_INFO['g1'] = {'model': 'SchZM', 
+#--------------------------------------------TEACHER Info ---------------------------------------------#
+TEACHER_INFO = {}
+TEACHER_INFO['g1'] = {'model': 'SchZM', 
 						'name': 'g1.pkl',
 						'description': 'generation: 1'}
+
+#--------------------------------------------UNLABELED_DATA Info ---------------------------------------------#
 UNLABELDATA_INFO[''] = {'name': '',
 						'audio_track_num': ''}
 

@@ -1,7 +1,8 @@
 # Singing Voice Detection via Similarity-based Semi-supervised Learning (SSSL_SVD)    
 
 This is a PyTorch implementation of the Singing Voice Detection via Similarity-based Semi-supervised Learning in ACM MM Asia 2022. 'SchCNN_0.918_0.924.pkl' is the model trained with SSSL_SVD, whose performance is on par with SOTA, with an acc of <strong>0.924</strong> and F1 of <strong>0.918</strong>.    
-<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_method.png"/></div>
+<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_method.png" alt="Singing Voice Detection via Similarity-based Semi-supervised Learning"/></div>   
+<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_results.png" alt="Performance Comparison  on Jamendo Corpus"/></div>
 
 ## Installation    
 ```bash     
@@ -59,14 +60,14 @@ sudo pip install -r requirements.txt
 3. Copy 'logs/g1/bestModel_acc.pkl' to 'SSSL_SVD/teschers' and rename it as 't2' 
 4. Add an item to config.py like
 	```python
-	DISTILLER_INFO['t1'] = {'model': 'SchZM', 
+	TEACHER_INFO['t1'] = {'model': 'SchZM', 
 						'name': 't1.pkl',
 						'description': 'generation: 1'}
 	```
 ### Generation i: Use the teacher model to train a student model. (i>=2) 
 1. Fill 'SSSL' in the 84th line of 'config.py'.   
 2. Change "UNLABEL_FOLDER_LIST = ['']" to "UNLABEL_FOLDER_LIST = ['U_{i}']" in the 115th line of 'config.py'.  
-3. Change "DISTILLER_LIST = ['']" to "DISTILLER_LIST = ['t{i}']" in the 115th line of 'config.py'.   
+3. Change "TEACHER_LIST = ['']" to "TEACHER_LIST = ['t{i}']" in the 115th line of 'config.py'.   
 4. Run:
 	```bash
 	python train.py --expName g{i}
@@ -74,7 +75,7 @@ sudo pip install -r requirements.txt
 5. Copy 'logs/g{i}/bestModel_acc.pkl' to 'SSSL_SVD/teschers' and rename it as 't{i+1}' 
 6. Add an item to config.py like
 	```python
-	DISTILLER_INFO['t{i}'] = {'model': 'SchZM', 
+	TEACHER_INFO['t{i}'] = {'model': 'SchZM', 
 						'name': 't{i}.pkl',
 						'description': 'generation: {i}'}
 	```
