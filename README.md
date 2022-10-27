@@ -1,8 +1,7 @@
 # Singing Voice Detection via Similarity-based Semi-supervised Learning (SSSL_SVD)    
 
 This is a PyTorch implementation of the Singing Voice Detection via Similarity-based Semi-supervised Learning in ACM MM Asia 2022. 'SchCNN_0.918_0.924.pkl' is the model trained with SSSL_SVD, whose performance is on par with SOTA, with an acc of <strong>0.924</strong> and F1 of <strong>0.918</strong>.    
-<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_method.png" alt="Singing Voice Detection via Similarity-based Semi-supervised Learning"/></div>   
-<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_results.png" alt="Performance Comparison  on Jamendo Corpus"/></div>
+<div align=center><img width="500" height="270" src="./figs/SSSL_SVD_method.png"/></div>
 
 ## Installation    
 ```bash     
