@@ -63,8 +63,9 @@ sudo pip install -r requirements.txt
 4. Add an item to config.py like
 	```python
 	TEACHER_INFO['t1'] = {'model': 'SchZM', 
-						'name': 't1.pkl',
-						'description': 'generation: 1'}
+				'name': 't1.pkl',
+				'description': 'generation: 1'
+			}
 	```
 ### Generation i: Use the teacher model to train a student model. (i>=2) 
 1. Fill 'SSSL' in the 84th line of 'config.py'.   
