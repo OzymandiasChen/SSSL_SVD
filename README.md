@@ -84,9 +84,7 @@ sudo pip install -r requirements.txt
 7. Check 'SSSL_SVD/logs/g{i}/trainLog.txt', enter 'Generation {i+1} 'if there is an improvement on the validation set.   
 
 ## Test   
-	```bash
 	python eval.py --expName g{the total generation num}    
-	```
 
 
 
